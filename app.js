@@ -24,7 +24,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve Static Files (if needed)
+// Serve Static Files from the /public directory
 app.use(express.static('public'));
 
 // Basic CRUD Routes
@@ -74,11 +74,10 @@ app.get('/api/test', async (req, res) => {
     }
 });
 
+// Catch-All Route to Serve index.html
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html'); // Serves the index.html file
+    res.sendFile(__dirname + '/public/index.html');
 });
-
-
 
 // Start the Server
 app.listen(port, () => {
