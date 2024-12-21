@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to the Console</h1>
+        <p>This is where you can manage your projects efficiently.</p>
+        <!-- Form placeholder -->
+        <form id="project-form">
+            <label for="project-name">Project Name:</label>
+            <input type="text" id="project-name" name="project-name" required>
+
+            <label for="image-name">Image Name:</label>
+            <input type="text" id="image-name" name="image-name" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="materials">Materials:</label>
+            <input type="text" id="materials" name="materials" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="attributes">Attributes:</label>
+            <input type="text" id="attributes" name="attributes" required>
+
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" rows="4"></textarea>
+
+            <label for="picture-upload">Upload Picture:</label>
+            <input type="file" id="picture-upload" name="picture-upload" accept="image/*">
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Console. All rights reserved.</p>
+    </footer>
+</body>
+</html>
