@@ -74,6 +74,12 @@ app.get('/api/test', async (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html'); // Serves the index.html file
+});
+
+
+
 // Start the Server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
