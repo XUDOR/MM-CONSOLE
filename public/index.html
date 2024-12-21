@@ -8,51 +8,66 @@
 </head>
 <body>
     <header>
+        <div class="logo">MM-Console</div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <h1>Welcome to the Console</h1>
-        <p>This is where you can manage your projects efficiently.</p>
-        <!-- Form placeholder -->
-        <form id="project-form">
-            <label for="project-name">Project Name:</label>
-            <input type="text" id="project-name" name="project-name" required>
+    <main class="grid-container">
+        <!-- Index Section -->
+        <section class="grid-item index">
+            <h2 class="titleTag">Index</h2>
+            <p>Welcome to the console. Use this space to navigate or explore.</p>
+        </section>
 
-            <label for="image-name">Image Name:</label>
-            <input type="text" id="image-name" name="image-name" required>
+        <!-- Form Section -->
+        <section class="grid-item form">
+            <h2 class="titleTag">Form</h2>
+            <form id="project-form">
+                <label for="project-name">Project Name:</label>
+                <input type="text" id="project-name" name="project-name" required>
 
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
+                <label for="image-name">Image Name:</label>
+                <input type="text" id="image-name" name="image-name" required>
 
-            <label for="materials">Materials:</label>
-            <input type="text" id="materials" name="materials" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
 
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" required>
+                <label for="materials">Materials:</label>
+                <input type="text" id="materials" name="materials" required>
 
-            <label for="attributes">Attributes:</label>
-            <input type="text" id="attributes" name="attributes" required>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
 
-            <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" rows="4"></textarea>
+                <label for="attributes">Attributes:</label>
+                <input type="text" id="attributes" name="attributes" required>
 
-            <label for="picture-upload">Upload Picture:</label>
-            <input type="file" id="picture-upload" name="picture-upload" accept="image/*">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="4"></textarea>
 
-            <button type="submit">Submit</button>
-        </form>
+                <label for="picture-upload">Upload Picture:</label>
+                <input type="file" id="picture-upload" name="picture-upload" accept="image/*">
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="grid-item preview">
+            <h2 class="titleTag">Preview</h2>
+            <p>The uploaded image and project details will be displayed here.</p>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Console. All rights reserved.</p>
+        <p>&copy; 2024 RDXENV | All rights reserved.</p>
     </footer>
 </body>
 </html>

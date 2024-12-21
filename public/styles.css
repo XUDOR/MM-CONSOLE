@@ -1,40 +1,108 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #4A4A4A;
   background-color: #f2f4ed; /* Prospective */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Header Styling */
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #e1e5d6; /* Mushroom */
   padding: 10px 20px;
   border-bottom: 2px solid #b7b19e; /* Cartesian */
 }
 
+.logo {
+  font-size: 2em;
+  font-weight: lighter;
+  border: 1px solid #4A4A4A; /* Ironclad */
+  padding: 5px 10px;
+  background-color: #8A9EA0; /* Silver Lining */
+}
+
 nav ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap; /* Enable wrapping */
+  gap: 10px;
+  justify-content: flex-end; /* Align to the right */
 }
 
 nav ul li {
-  display: inline;
+  display: flex;
 }
 
 nav ul li a {
+  display: block;
+  text-align: center;
   text-decoration: none;
   color: #4A4A4A; /* Ironclad */
-  font-weight: 300;
+  background-color: #b7b19e; /* Cartesian */
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  font-weight: normal;
 }
 
+nav ul li a:hover {
+  background-color: #888e7c; /* Mosco */
+  color: #fff;
+}
+
+/* Main Grid Layout */
 main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  gap: 20px;
   padding: 20px;
   background-color: #ECECEC; /* Silver Lining */
 }
 
+.grid-item {
+  padding: 20px;
+  border: 1px solid; /* Default border */
+  border-radius: 5px;
+}
+
+/* Title Styling */
+.titleTag {
+  font-weight: lighter;
+  font-size: 2em;
+  border-bottom: 1px solid #4A4A4A;
+  margin-bottom: 0.4em;
+  padding: 0.3em;
+}
+
+/* Specific Styles for Grid Sections */
+.index {
+  border-color: #b7b19e; /* Cartesian */
+  background-color: #e1e5d6; /* Mushroom */
+}
+
+.form {
+  border-color: #888e7c; /* Mosco */
+  background-color: #f2f4ed; /* Prospective */
+}
+
+.preview {
+  border-color: #4A4A4A; /* Ironclad */
+  background-color: #ECECEC; /* Silver Lining */
+}
+
+/* Form Styling */
 form {
   display: flex;
   flex-direction: column;
@@ -48,7 +116,9 @@ form label {
   color: #4A4A4A; /* Ironclad */
 }
 
-form input, form textarea, form button {
+form input,
+form textarea,
+form button {
   padding: 10px;
   border: 1px solid #888e7c; /* Mosco */
   border-radius: 4px;
@@ -66,12 +136,30 @@ form button:hover {
   background-color: #888e7c; /* Mosco */
 }
 
+/* Footer Styling */
 footer {
   background-color: #e1e5d6; /* Mushroom */
   color: #4A4A4A; /* Ironclad */
-  text-align: center;
-  padding: 10px;
-  position: sticky;
+  text-align: right;
+  padding: 0.4em;
+  position: fixed; /* Fixed positioning ensures it's always at the bottom */
   bottom: 0;
-  width: 100%;
+  right: 10px; /* Adds the margin-like effect on the right */
+  left: 0; /* Ensures it stretches to the left */
+  width: calc(100% - 10px); /* Adjusts width to account for the right "margin" */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr; /* Stack sections vertically */
+  }
+
+  footer {
+    text-align: center; /* Center footer text on smaller screens */
+  }
+
+  nav ul {
+    justify-content: center; /* Center navigation links on smaller screens */
+  }
 }
