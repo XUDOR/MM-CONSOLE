@@ -1,23 +1,16 @@
-//app.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const { Pool } = require('pg');
 
+// Load environment variables from .env file
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
-
-// PostgreSQL Pool
+// PostgreSQL Connection Pool
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -26,7 +19,17 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 });
 
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve Static Files (if needed)
+app.use(express.static('public'));
+
 // Basic CRUD Routes
+
+// Get All Projects
 app.get('/api/projects', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM projects');
@@ -36,6 +39,7 @@ app.get('/api/projects', async (req, res) => {
     }
 });
 
+// Add a New Project
 app.post('/api/projects', async (req, res) => {
     const { project_name, image_name, date, materials, location, attributes, comment } = req.body;
     try {
@@ -49,6 +53,7 @@ app.post('/api/projects', async (req, res) => {
     }
 });
 
+// Delete a Project by ID
 app.delete('/api/projects/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -59,6 +64,17 @@ app.delete('/api/projects/:id', async (req, res) => {
     }
 });
 
+// Test Route for Connection
+app.get('/api/test', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT 1 + 1 AS result');
+        res.json({ message: 'Database connected successfully!', result: result.rows[0].result });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Start the Server
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
